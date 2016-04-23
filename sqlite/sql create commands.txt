@@ -1,8 +1,8 @@
 ﻿/**By Renato**/
 
-CREATE TABLE Pessoa
-(
-idPessoa  		INT NOT NULL PRIMARY KEY,
+CREATE TABLE Pessoa(
+
+idPessoa 		INT NOT NULL PRIMARY KEY,
 
 nome			CHAR(20) NOT NULL,
 
@@ -18,7 +18,7 @@ NIF			INT NOT NULL
 
 
 CREATE TABLE Utente(
-numeroUtente 		INT NOT NULL PRIMARY KEY,
+numeroUtente		INT NOT NULL PRIMARY KEY,
 
 idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa)
 
@@ -27,12 +27,13 @@ idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa)
 
 CREATE TABLE Funcionario(
 
-numeroFuncionario 	INT NOT NULL PRIMARY KEY,
+numeroFuncion rio	INT NOT NULL PRIMARY KEY,
 
 idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa), 
 
 funcao			VARCHAR(50) NOT NULL
 
+idEquipa 		INT
 );
 
 
@@ -49,7 +50,7 @@ areaAcao		VARCHAR(50) NOT NULL
 
 CREATE TABLE Alergia(
 
-idAlergia 		INT NOT NULL PRIMARY KEY,
+idAlergia		INT NOT NULL PRIMARY KEY,
 
 nome 			VARCHAR(50) NOT NULL
 
@@ -78,11 +79,11 @@ designacao		VARCHAR(50)
 
 CREATE TABLE Cirurgia(
 
-idTratamento 	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(idTratamento),
+idTratamento	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(idTratamento),
 
 codigo 		INT UNIQUE,
  
-areaAcao 	VARCHAR(50) NOT NULL,
+areaAcao	VARCHAR(50) NOT NULL,
 
 idSalaCirurgica INT NOT NULL UNIQUE REFERENCES SalaCirurgica(idSalaCirurgica
 );
@@ -90,7 +91,7 @@ idSalaCirurgica INT NOT NULL UNIQUE REFERENCES SalaCirurgica(idSalaCirurgica
 
 CREATE TABLE Prescricao(
 
-idTratamento 	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(idTratamento),
+idTratamento	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(idTratamento),
 
 referencia 	INT NOT NULL,
 
@@ -101,7 +102,7 @@ NOT NULL
 
 CREATE TABLE SalaCirurgica(
 
-idSalaCirurgica 	INT NOT NULL PRIMARY KEY,
+idSalaCirurgica	INT NOT NULL PRIMARY KEY,
 
 bloco		CHAR(20) NOT NULL,
 
@@ -114,7 +115,7 @@ CREATE TABLE UtenteAlergia(
 
 idAlergia	INT NOT NULL REFERENCES Alergia(idAlergia),
 
-numeroUtente INT NOT NULL REFERENCES Utente(numeroUtente)
+numeroUtente 	INT NOT NULL REFERENCES Utente(numeroUtente)
 , 
 PRIMARY KEY(idAlergia, numeroUtente)
 
@@ -123,7 +124,7 @@ PRIMARY KEY(idAlergia, numeroUtente)
 
 CREATE TABLE UtenteVacina(
 
-idVacina 	INT NOT NULL REFERENCES Vacina(idVacina),
+idVacina	INT NOT NULL REFERENCES Vacina(idVacina),
 
 numeroUtente 	INT NOT NULL REFERENCES Utente(numeroUtente),
 
@@ -131,6 +132,11 @@ PRIMARY KEY(idVacina, numeroUtente)
 );
 
 /**By Aleixo**/
+
+CREATE TABLE EquipaUrgencia(
+idEquipa INT NOT NULL PRIMARY KEY,
+dataInicio DATE NOT NULL,
+dataFim DATE);
 
 CREATE TABLE Inscrição
 (urgênciaID NUMBER PRIMARY_KEY NOT NULL,
@@ -170,3 +176,5 @@ CREATE TABLE Cirurgia
 urgênciaID NUMBER NOT NULL,
 áreaAção TEXT NOT NULL,
 idSalaCirúrgica NUMBER REFERENCES SalaCirúrgica(idSalaCirúrgica) NOT NULL); 
+
+
