@@ -1,0 +1,172 @@
+﻿/**By Renato**/
+
+CREATE TABLE Pessoa
+(
+idPessoa  		INT NOT NULL PRIMARY KEY,
+
+nome			CHAR(20) NOT NULL,
+
+idade			INT NOT NULL,
+
+sexo			CHAR(20) NOT NULL,
+
+morada			VARCHAR(50),
+
+NIF			INT NOT NULL
+
+);
+
+
+CREATE TABLE Utente(
+numeroUtente 		INT NOT NULL PRIMARY KEY,
+
+idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa)
+
+);
+
+
+CREATE TABLE Funcionario(
+
+numeroFuncionario 	INT NOT NULL PRIMARY KEY,
+
+idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa), 
+
+funcao			VARCHAR(50) NOT NULL
+
+);
+
+
+CREATE TABLE Medico(
+
+numeroFuncionario	INT NOT NULL PRIMARY KEY REFERENCES Funcionario(numeroFuncionario),
+
+idEspecialidade 	INT NOT NULL UNIQUE REFERENCES Especialidade(idEspecialidade),
+ 
+areaAcao		VARCHAR(50) NOT NULL
+
+);
+
+
+CREATE TABLE Alergia(
+
+idAlergia 		INT NOT NULL PRIMARY KEY,
+
+nome 			VARCHAR(50) NOT NULL
+
+);
+
+
+CREATE TABLE Vacina(
+
+idVacina 		INT NOT NULL PRIMARY KEY, 
+
+nome 			VARCHAR(50) NOT NULL,
+
+dataAplicacao		DATE
+
+);
+
+
+CREATE TABLE Especialidade(
+
+idEspecialidade		INT NOT NULL PRIMARY KEY, 
+
+designacao		VARCHAR(50)
+
+);
+
+
+CREATE TABLE Cirurgia(
+
+idTratamento 	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(idTratamento),
+
+codigo 		INT UNIQUE,
+ 
+areaAcao 	VARCHAR(50) NOT NULL,
+
+idSalaCirurgica INT NOT NULL UNIQUE REFERENCES SalaCirurgica(idSalaCirurgica
+);
+
+
+CREATE TABLE Prescricao(
+
+idTratamento 	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(idTratamento),
+
+referencia 	INT NOT NULL,
+
+nome		CHAR(20)
+NOT NULL
+);
+
+
+CREATE TABLE SalaCirurgica(
+
+idSalaCirurgica 	INT NOT NULL PRIMARY KEY,
+
+bloco		CHAR(20) NOT NULL,
+
+numero		INT NOT NULL
+
+);
+
+
+CREATE TABLE UtenteAlergia(
+
+idAlergia	INT NOT NULL REFERENCES Alergia(idAlergia),
+
+numeroUtente INT NOT NULL REFERENCES Utente(numeroUtente)
+, 
+PRIMARY KEY(idAlergia, numeroUtente)
+
+);
+
+
+CREATE TABLE UtenteVacina(
+
+idVacina 	INT NOT NULL REFERENCES Vacina(idVacina),
+
+numeroUtente 	INT NOT NULL REFERENCES Utente(numeroUtente),
+
+PRIMARY KEY(idVacina, numeroUtente)
+);
+
+/**By Aleixo**/
+
+CREATE TABLE Inscrição
+(urgênciaID NUMBER PRIMARY_KEY NOT NULL,
+númeroUtente NUMBER REFERENCES Utente(númeroUtente) NOT NULL,
+númeroFuncionário NUMBER REFERENCES Funcionário(númeroFuncionário) NOT NULL,
+horaEntrada INTEGER NOT NULL);
+
+CREATE TABLE Checkout
+(urgênciaID NUMBER PRIMARY_KEY NOT NULL,
+númeroUtente NUMBER REFERENCES Utente(númeroUtente) NOT NULL,
+númeroFuncionário NUMBER REFERENCES Funcionário(númeroFuncionário) NOT NULL,
+taxa NUMBER NOT NULL,
+dataSaída INTEGER NOT NULL);
+
+CREATE TABLE Triagem
+(urgênciaID NUMBER PRIMARY_KEY NOT NULL,
+númeroUtente NUMBER REFERENCES Utente(númeroUtente) NOT NULL,
+númeroFuncionário NUMBER REFERENCES Funcionário(númeroFuncionário) NOT NULL,
+áreaAção TEXT NOT NULL,
+prioridade TEXT NOT NULL);
+
+CREATE TABLE Diagnóstico
+(urgênciaID NUMBER PRIMARY_KEY NOT NULL,
+númeroUtente NUMBER REFERENCES Utente(númeroUtente) NOT NULL,
+númeroFuncionário NUMBER REFERENCES Funcionário(númeroFuncionário) NOT NULL,
+dataEntrada INTEGER NOT NULL,
+dataSaída INTEGER NOT NULL,
+CHECK (dataSaída > dataEntrada)); 
+
+CREATE TABLE Tratamento
+(urgênciaID NUMBER PRIMARY_KEY NOT NULL,
+númeroUtente NUMBER REFERENCES Utente(númeroUtente) NOT NULL,
+númeroFuncionário NUMBER REFERENCES Funcionário(númeroFuncionário) NOT NULL);
+
+CREATE TABLE Cirurgia
+(código NUMBER PRIMARY_KEY NOT NULL,
+urgênciaID NUMBER NOT NULL,
+áreaAção TEXT NOT NULL,
+idSalaCirúrgica NUMBER REFERENCES SalaCirúrgica(idSalaCirúrgica) NOT NULL); 
