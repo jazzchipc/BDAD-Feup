@@ -33,8 +33,8 @@ INSERT INTO Especialidade VALUES('Ortopedica')
 INSERT INTO Especialidade VALUES('Neurocirurgiao')
 
 //Sala Cirurgica
-INSERT INTO SalaCirurgica VALUES('B', 120)
-INSERT INTO SalaCirurgica VALUES('C', 45)
+INSERT INTO SalaCirurgica VALUES(2120,'B', 120)
+INSERT INTO SalaCirurgica VALUES(,3045'C', 45)
 
 //UtenteAlergia e UtenteVacina
 INSERT INTO UtenteAlergia VALUES(1, 1001)
@@ -68,3 +68,10 @@ INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prior
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(3, 1003, 501, 'ClinicaGeral', 'poucoUrgente')
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(4, 1004, 508, 'Medica', 'muitoUrgente')
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(5, 1001, 508, 'Ortopedia', 'urgente')
+
+//Cirurgia
+INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(2,3,'Cirurgica',2120)
+
+//Prescricao
+INSERT INTO PRESCRICAO(referencia, urgenciaID, nome) VALUES(12349,1,'Ben-u-ron')
+INSERT INTO PRESCRICAO(referencia, urgenciaID, nome) VALUES(13938, 3, 'Brufen')
