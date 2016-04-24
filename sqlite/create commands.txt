@@ -63,38 +63,38 @@ idLider	INT NOT NULL,
 FOREIGN KEY (idLider) REFERENCES Medico(idLider));
 
 CREATE TABLE Inscricao
-(urgenciaID NUMBER PRIMARY_KEY NOT NULL,
-numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
-numeroFuncionario NUMBER REFERENCES Funcionario(númeroFuncionario) NOT NULL,
-horaEntrada INTEGER NOT NULL);
+(urgenciaID INT PRIMARY KEY NOT NULL,
+numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
+numeroFuncionario INT REFERENCES Funcionario(númeroFuncionario) NOT NULL,
+horaEntrada INT NOT NULL);
 
 CREATE TABLE Checkout
-(urgenciaID NUMBER PRIMARY_KEY NOT NULL,
-numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
-numeroFuncionario NUMBER REFERENCES Funcionario(númeroFuncionario) NOT NULL,
-taxa NUMBER NOT NULL,
-dataSaida INTEGER NOT NULL);
+(urgenciaID INT PRIMARY KEY NOT NULL,
+numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
+numeroFuncionario INT REFERENCES Funcionario(númeroFuncionario) NOT NULL,
+taxa INT NOT NULL,
+dataSaida INT NOT NULL);
 
 CREATE TABLE Triagem
-(urgenciaID NUMBER PRIMARY KEY NOT NULL,
-numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
-numeroFuncionario NUMBER REFERENCES Funcionario(númeroFuncionario) NOT NULL,
+(urgenciaID INT PRIMARY KEY NOT NULL,
+numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
+numeroFuncionario INT REFERENCES Funcionario(númeroFuncionario) NOT NULL,
 areaAcao TEXT NOT NULL,
 prioridade TEXT NOT NULL);
 
 CREATE TABLE Diagnostico
-(urgenciaID NUMBER NOT NULL,
-numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
-númeroFuncionario NUMBER REFERENCES Funcionario(numeroFuncionario) NOT NULL,
-dataEntrada INTEGER NOT NULL,
-dataSaida INTEGER,
+(urgenciaID INT NOT NULL,
+numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
+númeroFuncionario INT REFERENCES Funcionario(numeroFuncionario) NOT NULL,
+dataEntrada INT NOT NULL,
+dataSaida INT,
 PRIMARY KEY(urgenciaID, dataEntrada, dataSaida),
 CHECK (dataSaida > dataEntrada)); 
 
 CREATE TABLE Tratamento
-(urgenciaID NUMBER PRIMARY KEY NOT NULL,
-numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
-numeroFuncionário NUMBER REFERENCES Funcionario(númeroFuncionario) NOT NULL);
+(urgenciaID INT PRIMARY KEY NOT NULL,
+numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
+numeroFuncionário INT REFERENCES Funcionario(númeroFuncionario) NOT NULL);
 
 CREATE TABLE Cirurgia(
 urgenciaID	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(urgenciaID),
