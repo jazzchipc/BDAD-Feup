@@ -1,0 +1,50 @@
+//Utentes
+
+INSERT INTO Utente(numeroUtente, idPessoa, nome, idade, sexo, morada, NIF) VALUES(1000, 1, 'Renato Abreu', 19, 'Masculino', 'Esposende', 123456789)
+INSERT INTO Utente(numeroUtente, idPessoa, nome, idade, sexo, morada, NIF) VALUES(1001, 2, 'Diogo Duque', 19, 'Masculino', 'Trofa', 234567891)
+INSERT INTO Utente(numeroUtente, idPessoa, nome, idade, sexo, morada, NIF) VALUES(1002, 3, 'José Aleixo', 19, 'Masculino', 'Mortosa', 345678912)
+INSERT INTO Utente(numeroUtente, idPessoa, nome, idade, sexo, NIF) VALUES(1003, 4, 'Nuno Vieira', 27, 'Masculino', 456789123)
+INSERT INTO Utente(numeroUtente, idPessoa, nome, idade, sexo, NIF) VALUES(1004, 5, 'Pedro Filipe', 57, 'Masculino', 567891234)
+
+//Funcionários
+
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao, idEquipa) VALUES(500, 6, 'Fernando', 27, 'Masculino', 789123456, 'Enfermeiro', 1)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, morada, NIF, funcao, idEquipa) VALUES(501, 7, 'Elias', 43, 'Masculino', 'Lisboa', 891234567, 'Enfermeiro', 1)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao, idEquipa) VALUES(502, 8, 'Hugo', 57, 'Masculino', 912345678, 'Administrativo', 1)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, morada, NIF, funcao, idEquipa) VALUES(503, 9, 'Ines', 28, 'Feminino', 'Porto', 111111111, 'Administrativo', 1)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao, idEquipa) VALUES(504, 10, 'Joao', 42, 'Masculino', 222222222, 'Tecnico', 1)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao) VALUES(505, 11, 'Liliana', 27, 'Feminino', 333333333, 'Administrativo')
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao) VALUES(506, 12, 'Manuel', 43, 'Masculino', 444444444, 'Enfermeiro')
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao, idEquipa) VALUES(507, 13, 'Nuno', 57, 'Masculino', 555555555, 'Administrativo', 2)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, morada, NIF, funcao, idEquipa) VALUES(508, 14, 'Otavio', 28, 'Masculino', 'Porto', 666666666, 'Enfermeiro', 2)
+INSERT INTO Funcionario(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao, idEquipa) VALUES(509, 15, 'Paulo', 42, 'Masculino', 777777777, 'Tecnico', 2)
+INSERT INTO Medico(numeroFuncionario, idPessoa, nome, idade, sexo, NIF, funcao, idEquipa, idEspecialidade, areaAcao) VALUES(510, 16, 'Tania', 28, 'Feminino', 888888888, 'Medico', 1, 1, 'Ortopedia')
+INSERT INTO Medico(numeroFuncionario, idPessoa, nome, idade, sexo, morada, NIF, funcao, idEquipa, idEspecialidade, areaAcao) VALUES(511, 17, 'Daniel', 28, 'Masculino', 'Esposende', 999999999, 'Medico', 1, 2, 'Cirurgica')
+INSERT INTO Medico(numeroFuncionario, idPessoa, nome, idade, sexo, morada, NIF, funcao, idEquipa, areaAcao) VALUES(512, 18, 'Daniela Silva', 28, 'Feminino', 'Esposende', 111222333, 'Medico', 2, 'ClinicaGeral)
+
+//Alergia e vacina
+INSERT INTO Alergia VALUES('Polen')
+INSERT INTO Alergia VALUES('Acaros')
+INSERT INTO Vacina VALUES('Tetano')
+INSERT INTO Vacina VALUES('Hepatite')
+
+//Especialidade
+INSERT INTO Especialidade VALUES('Ortopedica')
+INSERT INTO Especialidade VALUES('Neurocirurgiao')
+
+//Sala Cirurgica
+INSERT INTO SalaCirurgica VALUES('B', 120)
+INSERT INTO SalaCirurgica VALUES('C', 45)
+
+//UtenteAlergia e UtenteVacina
+INSERT INTO UtenteAlergia VALUES(1, 1001)
+INSERT INTO UtenteAlergia VALUES(2, 1002)
+INSERT INTO UtenteAlergia VALUES(2, 1001)
+INSERT INTO UtenteVacina VALUES(1, 1004)
+INSERT INTO UtenteVacina VALUES(1, 1003)
+INSERT INTO UtenteVacina VALUES(2, 1000)
+
+//EquipaUrgencia
+INSERT INTO EquipaUrgencia VALUES('24-04-2016', '28-04-2016', 510)
+INSERT INTO EquipaUrgencia VALUES('22-04-2016', '25-04-2016', 512)
+
