@@ -4,22 +4,28 @@ nome			CHAR(20) NOT NULL,
 idade			INT NOT NULL,
 sexo			CHAR(20) NOT NULL,
 morada			VARCHAR(50),
-NIF			INT NOT NULL);
+NIF			INT NOT NULL,
+UNIQUE NIF);
 
 CREATE TABLE Utente(
 numeroUtente		INT NOT NULL PRIMARY KEY,
-idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa));
+idPessoa		INT NOT NULL,
+FOREIGN KEY (idPessoa) REFERENCES Pessoa(idPessoa));
 
 CREATE TABLE Funcionario(
 numeroFuncionario	INT NOT NULL PRIMARY KEY,
-idPessoa		INT NOT NULL UNIQUE REFERENCES Pessoa(idPessoa), 
-funcao			VARCHAR(50) NOT NULL
-idEquipa 		INT);
+idPessoa		INT NOT NULL, 
+funcao			VARCHAR(50) NOT NULL,
+idEquipa 		INT,
+FOREIGN KEY (idPessoa) REFERENCES Pessoa(idPessoa),
+FOREIGN KEY (idEquipa) REFERENCES EquipaUrgencia(idEquipa));
 
 CREATE TABLE Medico(
-numeroFuncionario	INT NOT NULL PRIMARY KEY REFERENCES Funcionario(numeroFuncionario),
-idEspecialidade 	INT NOT NULL UNIQUE REFERENCES Especialidade(idEspecialidade),
-areaAcao		VARCHAR(50) NOT NULL);
+numeroFuncionario	INT NOT NULL PRIMARY KEY,
+idEspecialidade 	INT NOT NULL,
+areaAcao		VARCHAR(50) NOT NULL,
+FOREIGN KEY (numeroFuncionario) REFERENCES Funcionario(numeroFuncionario),
+FOREIGN KEY (idEspecialidade) REFERENCES Especialidade(idEspecialidade));
 
 CREATE TABLE Alergia(
 idAlergia		INT NOT NULL PRIMARY KEY,
@@ -52,8 +58,9 @@ PRIMARY KEY(idVacina, numeroUtente));
 CREATE TABLE EquipaUrgencia(
 idEquipa INT NOT NULL PRIMARY KEY,
 dataInicio DATE NOT NULL,
-dataFim DATE
-idLider	INT NOT NULL REFERENCES Medico(idLider));
+dataFim DATE,
+idLider	INT NOT NULL,
+FOREIGN KEY (idLider) REFERENCES Medico(idLider));
 
 CREATE TABLE Inscricao
 (urgenciaID NUMBER PRIMARY_KEY NOT NULL,
@@ -69,7 +76,7 @@ taxa NUMBER NOT NULL,
 dataSaida INTEGER NOT NULL);
 
 CREATE TABLE Triagem
-(urgenciaID NUMBER PRIMARY_KEY NOT NULL,
+(urgenciaID NUMBER PRIMARY KEY NOT NULL,
 numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
 numeroFuncionario NUMBER REFERENCES Funcionario(númeroFuncionario) NOT NULL,
 areaAcao TEXT NOT NULL,
@@ -85,7 +92,7 @@ PRIMARY KEY(urgenciaID, dataEntrada, dataSaida),
 CHECK (dataSaida > dataEntrada)); 
 
 CREATE TABLE Tratamento
-(urgenciaID NUMBER PRIMARY_KEY NOT NULL,
+(urgenciaID NUMBER PRIMARY KEY NOT NULL,
 numeroUtente NUMBER REFERENCES Utente(numeroUtente) NOT NULL,
 numeroFuncionário NUMBER REFERENCES Funcionario(númeroFuncionario) NOT NULL);
 
