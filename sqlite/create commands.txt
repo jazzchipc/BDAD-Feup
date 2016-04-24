@@ -1,6 +1,6 @@
 ﻿CREATE TABLE Pessoa( 
 idPessoa INT NOT NULL PRIMARY KEY,
-nome CHAR(20) NOT NULL,
+nome CHAR(30) NOT NULL,
 idade INT NOT NULL,
 sexo CHAR(20) NOT NULL,
 morada VARCHAR(50),
