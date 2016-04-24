@@ -97,12 +97,14 @@ numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
 numeroFuncionário INT REFERENCES Funcionario(númeroFuncionario) NOT NULL);
 
 CREATE TABLE Cirurgia(
-urgenciaID	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(urgenciaID),
+urgenciaID	INT NOT NULL REFERENCES Tratamento(urgenciaID),
 codigo 		INT NOT NULL UNIQUE,
 areaAcao	TEXT NOT NULL,
-idSalaCirurgica INT NOT NULL UNIQUE REFERENCES SalaCirurgica(idSalaCirurgica);
+idSalaCirurgica INT NOT NULL UNIQUE REFERENCES SalaCirurgica(idSalaCirurgica),
+PRIMARY KEY(urgenciaID, codigo));
 
 CREATE TABLE Prescricao(
-urgenciaID	INT NOT NULL PRIMARY KEY REFERENCES Tratamento(urgenciaID),
+urgenciaID	INT NOT NULL REFERENCES Tratamento(urgenciaID),
 referencia 	INT NOT NULL,
-nome		CHAR(20) NOT NULL);
+nome		CHAR(20) NOT NULL,
+PRIMARY KEY (urgenciaID, referencia));
