@@ -45,6 +45,26 @@ INSERT INTO UtenteVacina VALUES(1, 1003)
 INSERT INTO UtenteVacina VALUES(2, 1000)
 
 //EquipaUrgencia
-INSERT INTO EquipaUrgencia VALUES('24-04-2016', '28-04-2016', 510)
 INSERT INTO EquipaUrgencia VALUES('22-04-2016', '25-04-2016', 512)
+INSERT INTO EquipaUrgencia VALUES('26-04-2016', '28-04-2016', 510)
 
+//Inscricao - a verificação das horas de entradas com o respetivo turno do funcionario sera feita com triggers
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(1, 1000, 502, '21-04-2016')
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(2, 1001, 502, '22-04-2016')
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(3, 1003, 503, '24-04-2016')
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(4, 1004, 507, '27-04-2016')
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(5, 1001, 507, '28-04-2016')
+
+//Checkout
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(1, 1000, 502, '22-04-2016', 100)
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(2, 1001, 503, '23-04-2016', 50)
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(3, 1003, 502, '25-04-2016', 200)
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(4, 1004, 507, '28-04-2016', 25)
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(5, 1001, 507, '28-04-2016', 15)
+
+//Triagem
+INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(1, 1000, 501, 'Medica', 'poucoUrgente')
+INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(2, 1001, 500, 'Cirurgica', 'emergente')
+INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(3, 1003, 501, 'ClinicaGeral', 'poucoUrgente')
+INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(4, 1004, 508, 'Medica', 'muitoUrgente')
+INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(5, 1001, 508, 'Ortopedia', 'urgente')
