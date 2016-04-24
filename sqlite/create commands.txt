@@ -6,6 +6,13 @@ sexo CHAR(20) NOT NULL,
 morada VARCHAR(50),
 NIF INT NOT NULL UNIQUE);
 
+CREATE TABLE EquipaUrgencia(
+idEquipa INT NOT NULL PRIMARY KEY, 
+dataInicio DATE NOT NULL, 
+dataFim DATE, 
+idLider INT NOT NULL, 
+FOREIGN KEY (idLider) REFERENCES Medico(idLider));
+
 CREATE TABLE Utente(
 numeroUtente INT NOT NULL PRIMARY KEY,
 idPessoa INT NOT NULL,
@@ -32,8 +39,7 @@ nome VARCHAR(50) NOT NULL);
 
 CREATE TABLE Vacina(
 idVacina INT NOT NULL PRIMARY KEY, 
-nome VARCHAR(50) NOT NULL,
-dataAplicacao DATE);
+nome VARCHAR(50) NOT NULL);
 
 CREATE TABLE Especialidade(
 idEspecialidade	INT NOT NULL PRIMARY KEY, 
@@ -52,7 +58,8 @@ PRIMARY KEY(idAlergia, numeroUtente));
 CREATE TABLE UtenteVacina(
 idVacina INT NOT NULL REFERENCES Vacina(idVacina),
 numeroUtente INT NOT NULL REFERENCES Utente(numeroUtente),
-PRIMARY KEY(idVacina, numeroUtente));
+dataAplicacao DATE,
+PRIMARY KEY(idVacina, numeroUtente, dataAplicacao));
 
 CREATE TABLE EquipaUrgencia(
 idEquipa INT NOT NULL PRIMARY KEY,

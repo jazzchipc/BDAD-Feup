@@ -67,8 +67,8 @@ INSERT INTO Vacina VALUES(1, 'Tetano');
 INSERT INTO Vacina VALUES(2, 'Hepatite');
 
 //Especialidade
-INSERT INTO Especialidade VALUES('Ortopedica');
-INSERT INTO Especialidade VALUES('Neurocirurgiao');
+INSERT INTO Especialidade VALUES(1, 'Ortopedica');
+INSERT INTO Especialidade VALUES(2, 'Neurocirurgiao');
 
 //Sala Cirurgica
 INSERT INTO SalaCirurgica VALUES(2120,'B', 120);
@@ -78,13 +78,13 @@ INSERT INTO SalaCirurgica VALUES(3045,'C', 45);
 INSERT INTO UtenteAlergia VALUES(1, 1001);
 INSERT INTO UtenteAlergia VALUES(2, 1002);
 INSERT INTO UtenteAlergia VALUES(2, 1001);
-INSERT INTO UtenteVacina VALUES(1, 1004);
-INSERT INTO UtenteVacina VALUES(1, 1003);
-INSERT INTO UtenteVacina VALUES(2, 1000);
+INSERT INTO UtenteVacina VALUES(1, 1004, '01-07-1996');
+INSERT INTO UtenteVacina VALUES(1, 1003, '28-02-2002');
+INSERT INTO UtenteVacina VALUES(2, 1000, '21-03-2001');
 
 //EquipaUrgencia
-INSERT INTO EquipaUrgencia VALUES('22-04-2016', '25-04-2016', 512);
-INSERT INTO EquipaUrgencia VALUES('26-04-2016', '28-04-2016', 510);
+INSERT INTO EquipaUrgencia VALUES(1, '22-04-2016', '25-04-2016', 512);
+INSERT INTO EquipaUrgencia VALUES(2, '26-04-2016', '28-04-2016', 510);
 
 //Inscricao - a verificação das horas de entradas com o respetivo turno do funcionario sera feita com triggers
 INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(1, 1000, 502, '21-04-2016');
@@ -111,5 +111,5 @@ INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prior
 INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(2,3,'Cirurgica',2120);
 
 //Prescricao
-INSERT INTO PRESCRICAO(referencia, urgenciaID, nome) VALUES(12349,1,'Ben-u-ron');
-INSERT INTO PRESCRICAO(referencia, urgenciaID, nome) VALUES(13938, 3, 'Brufen');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(12349,1,'Ben-u-ron');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(13938, 3, 'Brufen');
