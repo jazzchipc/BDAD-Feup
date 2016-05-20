@@ -1,19 +1,7 @@
 1. Qual é a especialidade do médico chamado "Daniel"?
 
-SELECT designacao
-FROM
-	(Pessoa 
-	INNER JOIN
-	Funcionario
-	ON Pessoa.idPessoa = Funcionario.idPessoa
-	INNER JOIN
-	Medico
-	ON Funcionario.numeroFuncionario = Medico.numeroFuncionario
-	INNER JOIN
-	Especialidade
-	ON Medico.idEspecialidade = Especialidade.idEspecialidadeINT)
-WHERE Pessoa.nome = 'Daniel';
-
+SELECT Especialidade.designacao 
+FROM Especialidade
 WHERE idEspecialidadeINT  (
 SELECT idEspecialidade FROM Medico
 WHERE Medico.numeroFuncionario == (
@@ -36,6 +24,10 @@ WHERE Vacina.nome='Tetano';
 5. Quais os IDs dos médicos de área de ação "Cirurgica" que estiveram na equipa de urgência ativa no dia 23 de Abril de 2016?
 
 6. Quais os IDs dos utentes cuja triagem resultou num nível de prioridade "emergente" ou "muito urgente"?
+SELECT numeroUtente FROM Triagem
+WHERE(Triagem.prioridade='emergente'
+      OR
+      Triagem.prioridade='muitoUrgente');
 
 
 7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
@@ -44,13 +36,10 @@ WHERE Vacina.nome='Tetano';
 
 9. Qual o ID do médico que realizou mais cirurgias?
 
-10. Quais os números das Salas de Cirurgia que já foram utilizadas?
+10. Qual o numero de especialidades a que cada utente acedeu?
 
 
-//numero de especs a que cada utente acedeu (agregacao)
+
 //left joins
 //Quais os pacientes da ultima semana?
 //HAVING
-
-
-OOOOOOOOOOLLLAAAAAAAAAA
