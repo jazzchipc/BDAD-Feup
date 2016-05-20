@@ -1,5 +1,6 @@
-1. Qual é a especialidade do médico chamado "Daniel"?
+1. Qual é a especialidade do médico chamado "Daniel"? (FEITOOOOOOO!)
 
+<<<<<<< HEAD
 SELECT Especialidade.designacao 
 FROM Especialidade
 WHERE idEspecialidadeINT  (
@@ -9,17 +10,44 @@ SELECT numeroFuncionario FROM Funcionario
 WHERE idPessoa == (
 SELECT idPessoa FROM Pessoa 
 WHERE (Pessoa.nome == 'Daniel'))));
+=======
+SELECT designacao
+FROM
+	(Pessoa 
+	INNER JOIN
+	Funcionario
+	ON Pessoa.idPessoa = Funcionario.idPessoa
+	INNER JOIN
+	Medico
+	ON Funcionario.numeroFuncionario = Medico.numeroFuncionario
+	INNER JOIN
+	Especialidade
+	ON Medico.idEspecialidade = Especialidade.idEspecialidadeINT)
+WHERE Pessoa.nome = 'Daniel';
 
-//idades e sexo
-2. Qual é o conjunto de IDs dos utentes que foram às urgência no dia 27 e 28 de Abril de 2016?
+2. Qual é o conjunto de IDs dos utentes do sexo masculino com idade inferior a 30 anos que foram às urgência no dia 27 e 28 de Abril de 2016? (FEITOOOOOOO!)
+
+SELECT Utente.numeroUtente
+FROM
+	(Pessoa
+	INNER JOIN 
+	Utente
+	ON Pessoa.idPessoa = Utente.idPessoa
+	INNER JOIN
+	Inscricao
+	ON Utente.numeroUtente = Inscricao.numeroUtente)
+WHERE 
+((Inscricao.horaEntrada = '27-04-2016' OR Inscricao.horaEntrada = '28-04-2016')
+AND
+(Pessoa.sexo == 'Masculino' AND Pessoa.idade < 30));
+>>>>>>> origin/master
+
+
+	
 
 3. Quais são os números de utente do conjunto de pessoas que foi atendido pela médica "Tania"?
 
-4. Quantas pessoas já tomaram a vacina contra o "Tetano"? (FEITOOOOOOO)
-SELECT COUNT(*) numeroUtente FROM UtenteVacina
-INNER JOIN Vacina
-ON Vacina.idVacina=UtenteVacina.idVacina
-WHERE Vacina.nome='Tetano';
+4. Quantas pessoas já tomaram a vacina contra o "Tetano"?
 
 5. Quais os IDs dos médicos de área de ação "Cirurgica" que estiveram na equipa de urgência ativa no dia 23 de Abril de 2016?
 
@@ -28,7 +56,6 @@ SELECT numeroUtente FROM Triagem
 WHERE(Triagem.prioridade='emergente'
       OR
       Triagem.prioridade='muitoUrgente');
-
 
 7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
 
