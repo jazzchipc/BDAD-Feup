@@ -1,7 +1,19 @@
 1. Qual é a especialidade do médico chamado "Daniel"?
 
-SELECT Especialidade.designacao 
-FROM Especialidade
+SELECT designacao
+FROM
+	(Pessoa 
+	INNER JOIN
+	Funcionario
+	ON Pessoa.idPessoa = Funcionario.idPessoa
+	INNER JOIN
+	Medico
+	ON Funcionario.numeroFuncionario = Medico.numeroFuncionario
+	INNER JOIN
+	Especialidade
+	ON Medico.idEspecialidade = Especialidade.idEspecialidadeINT)
+WHERE Pessoa.nome = 'Daniel';
+
 WHERE idEspecialidadeINT  (
 SELECT idEspecialidade FROM Medico
 WHERE Medico.numeroFuncionario == (
