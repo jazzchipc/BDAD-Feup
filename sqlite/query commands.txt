@@ -27,11 +27,16 @@ WHERE (Pessoa.nome == 'Daniel'))));
 
 3. Quais são os números de utente do conjunto de pessoas que foi atendido pela médica "Tania"?
 
-4. Quantas pessoas já tomaram a vacina contra o "Tetano"?
+4. Quantas pessoas já tomaram a vacina contra o "Tetano"? (FEITOOOOOOO)
+SELECT COUNT(*) numeroUtente FROM UtenteVacina
+INNER JOIN Vacina
+ON Vacina.idVacina=UtenteVacina.idVacina
+WHERE Vacina.nome='Tetano';
 
 5. Quais os IDs dos médicos de área de ação "Cirurgica" que estiveram na equipa de urgência ativa no dia 23 de Abril de 2016?
 
 6. Quais os IDs dos utentes cuja triagem resultou num nível de prioridade "emergente" ou "muito urgente"?
+
 
 7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
 
