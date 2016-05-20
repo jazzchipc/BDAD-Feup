@@ -1,4 +1,4 @@
-1. Qual é a especialidade do médico chamado "Daniel"?
+1. Qual é a especialidade do médico chamado "Daniel"? (FEITOOOOOOO!)
 
 SELECT designacao
 FROM
@@ -14,29 +14,26 @@ FROM
 	ON Medico.idEspecialidade = Especialidade.idEspecialidadeINT)
 WHERE Pessoa.nome = 'Daniel';
 
-WHERE idEspecialidadeINT  (
-SELECT idEspecialidade FROM Medico
-WHERE Medico.numeroFuncionario == (
-SELECT numeroFuncionario FROM Funcionario
-WHERE idPessoa == (
-SELECT idPessoa FROM Pessoa 
-WHERE (Pessoa.nome == 'Daniel'))));
+2. Qual é o conjunto de IDs dos utentes do sexo masculino com idade inferior a 30 anos que foram às urgência no dia 27 e 28 de Abril de 2016? (FEITOOOOOOO!)
 
-//idades e sexo
-2. Qual é o conjunto de IDs dos utentes que foram às urgência no dia 27 e 28 de Abril de 2016?
+SELECT Utente.numeroUtente
+FROM
+	(Utente
+	INNER JOIN
+	Inscricao
+	ON Utente.numeroUtente = Inscricao.numeroUtente)
+WHERE (Inscricao.horaEntrada = '27-04-2016' OR Inscricao.horaEntrada = '28-04-2016');
+
+
+	
 
 3. Quais são os números de utente do conjunto de pessoas que foi atendido pela médica "Tania"?
 
-4. Quantas pessoas já tomaram a vacina contra o "Tetano"? (FEITOOOOOOO)
-SELECT COUNT(*) numeroUtente FROM UtenteVacina
-INNER JOIN Vacina
-ON Vacina.idVacina=UtenteVacina.idVacina
-WHERE Vacina.nome='Tetano';
+4. Quantas pessoas já tomaram a vacina contra o "Tetano"?
 
 5. Quais os IDs dos médicos de área de ação "Cirurgica" que estiveram na equipa de urgência ativa no dia 23 de Abril de 2016?
 
 6. Quais os IDs dos utentes cuja triagem resultou num nível de prioridade "emergente" ou "muito urgente"?
-
 
 7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
 
