@@ -51,3 +51,6 @@ WHERE Vacina.nome='Tetano';
 //left joins
 //Quais os pacientes da ultima semana?
 //HAVING
+
+
+OOOOOOOOOOLLLAAAAAAAAAA
