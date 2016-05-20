@@ -1,0 +1,19 @@
+1. Qual é a especialidade do médico chamado "Daniel"?
+
+2. Qual é o conjunto de IDs dos utentes que foram às urgência no dia 27 e 28 de Abril de 2016?
+
+3. Quais são os números de utente do conjunto de pessoas que foi atendido pela médica "Tania"?
+
+4. Quantas pessoas já tomaram a vacina contra o "Tetano"?
+
+5. Quais os IDs dos médicos de área de ação "Cirurgica" que estiveram na equipa de urgência ativa no dia 23 de Abril de 2016?
+
+6. Quais os IDs dos utentes cuja triagem resultou num nível de prioridade "emegernte" ou "muito urgente"?
+
+7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
+
+8. Quais os IDs dos funcionários que participaram numa determinada urgênciaID?
+
+9. Qual o ID do médico que realizou mais cirurgias?
+
+10. Quais os números das Salas de Cirurgia que já foram utilizadas?
