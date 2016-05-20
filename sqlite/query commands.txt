@@ -18,11 +18,17 @@ WHERE Pessoa.nome = 'Daniel';
 
 SELECT Utente.numeroUtente
 FROM
-	(Utente
+	(Pessoa
+	INNER JOIN 
+	Utente
+	ON Pessoa.idPessoa = Utente.idPessoa
 	INNER JOIN
 	Inscricao
 	ON Utente.numeroUtente = Inscricao.numeroUtente)
-WHERE (Inscricao.horaEntrada = '27-04-2016' OR Inscricao.horaEntrada = '28-04-2016');
+WHERE 
+((Inscricao.horaEntrada = '27-04-2016' OR Inscricao.horaEntrada = '28-04-2016')
+AND
+(Pessoa.sexo == 'Masculino' AND Pessoa.idade < 30));
 
 
 	
