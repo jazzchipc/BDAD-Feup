@@ -54,3 +54,6 @@ AND
 //left joins
 //Quais os pacientes da ultima semana?
 //HAVING
+
+
+OOOOOOOOOOLLLAAAAAAAAAA
