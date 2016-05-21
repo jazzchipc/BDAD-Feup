@@ -16,7 +16,7 @@ WHERE Pessoa.nome = 'Fábio';
 
 2. Qual é o conjunto de IDs dos utentes do sexo masculino com idade inferior a 30 anos que foram às urgência entre o dia 22 e 26 de Abril de 2016? (FEITOOOOOOO!)
 
-SELECT Utente.numeroUtente
+SELECT DISTINCT Utente.numeroUtente
 FROM
 	(Pessoa
 	INNER JOIN 
@@ -33,7 +33,7 @@ ORDER BY Utente.numeroUtente;
 
 3. Quais são os números dos utentes que foram atendidos pelo médico "Duque" ou que têm a vacina contra o "Tetanto"? (FEITOOOOOOO!)
 
-SELECT Utente.numeroUtente
+SELECT DISTINCT Utente.numeroUtente
 FROM
 	(Pessoa
 	INNER JOIN
@@ -85,7 +85,22 @@ WHERE(Triagem.prioridade='emergente'
       Triagem.prioridade='muitoUrgente');
 
 
-7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
+7. Quais os nomes e idades dos utentes que ficaram mais do que 1 dia nas urgências?
+
+SELECT DISTINCT nome, idade
+FROM
+	(Pessoa
+	INNER JOIN
+	Utente
+	ON Pessoa.idPessoa = Utente.idPessoa
+	INNER JOIN
+	Inscricao
+	ON Utente.numeroUtente = Inscricao.numeroUtente
+	INNER JOIN
+	Checkout
+	ON Utente.numeroUtente = Checkout.numeroUtente)
+GROUP BY Pessoa.nome
+HAVING (julianday(Checkout.dataSaida) - julianday(Inscricao.horaEntrada) > 1);
 
 
 
