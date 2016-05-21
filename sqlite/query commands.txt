@@ -107,9 +107,53 @@ HAVING (julianday(Checkout.dataSaida) - julianday(Inscricao.horaEntrada) > 1);
 8. Quais os numeroFuncionario dos funcionarios que participaram na equipa com urgênciaID=1?
 
 
-SELECT numeroFuncionario FROM Funcionario 
-WHERE idEquipa=1;
+SELECT Funcionario.funcao, Funcionario.numeroFuncionario
+FROM 	
+	(Funcionario
+	INNER JOIN
+	Inscricao
+	ON Funcionario.numeroFuncionario = Inscricao.numeroFuncionario )
+	 WHERE(Inscricao.urgenciaID = 1)
 
+UNION
+
+SELECT Funcionario.funcao, Funcionario.numeroFuncionario
+FROM 	
+	(Funcionario
+	INNER JOIN
+	Checkout
+	ON Funcionario.numeroFuncionario = Checkout.numeroFuncionario )
+	 WHERE(Checkout.urgenciaID = 1)
+
+UNION
+
+SELECT Funcionario.funcao, Funcionario.numeroFuncionario
+FROM 	
+	(Funcionario
+	INNER JOIN
+	Triagem
+	ON Funcionario.numeroFuncionario = Triagem.numeroFuncionario )
+	 WHERE(Triagem.urgenciaID = 1)
+
+UNION
+
+SELECT Funcionario.funcao, Funcionario.numeroFuncionario
+FROM 	
+	(Funcionario
+	INNER JOIN
+	Diagnostico
+	ON Funcionario.numeroFuncionario = Diagnostico.numeroFuncionario )
+	 WHERE(Diagnostico.urgenciaID = 1)
+
+UNION
+
+SELECT Funcionario.funcao, Funcionario.numeroFuncionario
+FROM 	
+	(Funcionario
+	INNER JOIN
+	Tratamento
+	ON Funcionario.numeroFuncionario = Tratamento.numeroFuncionario )
+	 WHERE(Tratamento.urgenciaID = 1);
 9. Qual o ID do médico que realizou mais cirurgias?
 
 SELECT numeroFuncionario, MAX(cirurgias)
