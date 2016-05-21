@@ -1,4 +1,4 @@
-1. Qual é a especialidade do médico chamado "Daniel"? (FEITOOOOOOO!)
+1. Qual é a especialidade do médico chamado "Fábio"? (FEITOOOOOOO!)
 
 SELECT designacao
 FROM
@@ -11,11 +11,10 @@ FROM
 	ON Funcionario.numeroFuncionario = Medico.numeroFuncionario
 	INNER JOIN
 	Especialidade
-	ON Medico.idEspecialidade = Especialidade.idEspecialidadeINT)
-WHERE Pessoa.nome = 'Daniel';
+	ON Medico.idEspecialidade = Especialidade.idEspecialidade)
+WHERE Pessoa.nome = 'Fábio';
 
-
-2. Qual é o conjunto de IDs dos utentes do sexo masculino com idade inferior a 30 anos que foram às urgência no dia 27 e 28 de Abril de 2016? (FEITOOOOOOO!)
+2. Qual é o conjunto de IDs dos utentes do sexo masculino com idade inferior a 30 anos que foram às urgência entre o dia 22 e 26 de Abril de 2016? (FEITOOOOOOO!)
 
 SELECT Utente.numeroUtente
 FROM
@@ -27,13 +26,40 @@ FROM
 	Inscricao
 	ON Utente.numeroUtente = Inscricao.numeroUtente)
 WHERE 
-((Inscricao.horaEntrada = '27-04-2016' OR Inscricao.horaEntrada = '28-04-2016')
+((Inscricao.horaEntrada >= '2016-04-22' AND Inscricao.horaEntrada <= '2016-04-26')
 AND
-(Pessoa.sexo == 'Masculino' AND Pessoa.idade < 30));
+(Pessoa.sexo == 'Masculino' AND Pessoa.idade < 30))
+ORDER BY Utente.numeroUtente;
 
+3. Quais são os números dos utentes que foram atendidos pelo médico "Duque" ou que têm a vacina contra o "Tetanto"? (FEITOOOOOOO!)
 
-3. Quais são os números de utente do conjunto de pessoas que foi atendido pela médica "Tania"?
+SELECT Utente.numeroUtente
+FROM
+	(Pessoa
+	INNER JOIN
+	Funcionario
+	ON Pessoa.idPessoa = Funcionario.idPessoa
+	INNER JOIN
+	Tratamento
+	ON Tratamento.numeroFuncionario = Funcionario.numeroFuncionario
+	INNER JOIN
+	Utente
+	ON Utente.numeroUtente = Tratamento.numeroUtente)
+WHERE Pessoa.nome = 'Duque'
 
+UNION
+
+SELECT Utente.numeroUtente
+FROM
+	(Utente
+	INNER JOIN
+	UtenteVacina
+	ON Utente.numeroUtente = UtenteVacina.numeroUtente
+	INNER JOIN
+	Vacina
+	ON Vacina.idVacina = UtenteVacina.idVacina
+	)
+WHERE Vacina.nome = 'Tetano';
 
 4. Quantas pessoas já tomaram a vacina contra o "Tetano"? (FEITOOOOOOO)
 
