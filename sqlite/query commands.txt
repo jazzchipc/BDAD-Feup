@@ -85,9 +85,9 @@ WHERE(Triagem.prioridade='emergente'
       Triagem.prioridade='muitoUrgente');
 
 
-7. Quais os nomes e idades dos utentes que ficaram mais do que 1 dia nas urgências?
+7. Quais os nomes, idades e sexo dos utentes que ficaram mais do que 1 dia nas urgências?
 
-SELECT DISTINCT nome, idade
+SELECT DISTINCT nome, idade, sexo
 FROM
 	(Pessoa
 	INNER JOIN
@@ -114,11 +114,50 @@ WHERE idEquipa=1;
 
 9. Qual o ID do médico que realizou mais cirurgias?
 
+10. Qual o nome e a idade do 1º e 2º utente mais velhos que foram às urgências e qual o ID dos médicos que os atenderam?
 
-10. Qual o numero de especialidades a que cada utente acedeu?
+SELECT Pessoa.nome, MAX(Pessoa.idade), Tratamento.numeroFuncionario
+FROM 	
+	(Tratamento
+	LEFT JOIN
+	Utente
+	ON Tratamento.numeroUtente = Utente.numeroUtente
+	LEFT JOIN
+	Pessoa
+	ON Pessoa.idPessoa = Utente.idPessoa)
 
+UNION
 
+SELECT Pessoa.nome, MAX(Pessoa.idade), Tratamento.numeroFuncionario
+FROM 	
+	(Tratamento
+	LEFT JOIN
+	Utente
+	ON Tratamento.numeroUtente = Utente.numeroUtente
+	LEFT JOIN
+	Pessoa
+	ON Pessoa.idPessoa = Utente.idPessoa)
+WHERE (Pessoa.idade < 
+		(SELECT MAX(Pessoa.idade)
+		FROM
+			(Tratamento
+			LEFT JOIN
+			Utente
+			ON Tratamento.numeroUtente = Utente.numeroUtente
+			LEFT JOIN
+			Pessoa
+			ON Pessoa.idPessoa = Utente.idPessoa)));
+			
+11. Quantas pessoas registadas no sistema não são médicas?
 
-//left joins
-//Quais os pacientes da ultima semana?
-//HAVING
+SELECT COUNT(*) idPessoa
+FROM
+	(Pessoa
+	LEFT JOIN
+	Funcionario
+	ON Pessoa.idPessoa = Funcionario.idPessoa
+	LEFT JOIN
+	Medico
+	ON Funcionario.numeroFuncionario = Medico.numeroFuncionario)
+WHERE Medico.numeroFuncionario IS NULL;
+	
