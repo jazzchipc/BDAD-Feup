@@ -100,7 +100,7 @@ CHECK (dataSaida > dataEntrada));
 CREATE TABLE Tratamento
 (urgenciaID INT PRIMARY KEY NOT NULL,
 numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
-numeroFuncionário INT REFERENCES Funcionario(númeroFuncionario) NOT NULL);
+numeroFuncionario INT REFERENCES Funcionario(númeroFuncionario) NOT NULL);
 
 CREATE TABLE Cirurgia(
 urgenciaID INT NOT NULL REFERENCES Tratamento(urgenciaID),

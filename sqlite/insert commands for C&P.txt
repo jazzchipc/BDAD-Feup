@@ -5,10 +5,12 @@ INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (4, 'Mariana
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (5, 'Francisco', 28, 'Masculino', 'Trofa', 444333222);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (6, 'Olga', 37, 'Feminino', 'Mortosa', 555444333);
 
+
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (7, 'Nuno Vieira', 27, 'Masculino', 456789123);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (8, 'Pedro Filipe', 57, 'Masculino', 567891234);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (9, 'Liliana', 27, 'Feminino', 666555444);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (10, 'Joao', 57, 'Masculino', 777666555);
+
 
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (11, 'Fernando', 27, 'Masculino', 789123456);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (12, 'Elias', 43, 'Masculino', 'Lisboa', 891234567);
@@ -24,7 +26,8 @@ INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (21, 'Tania', 28, 'F
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (22, 'Daniel', 28, 'Masculino', 'Esposende', 999999999);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (23, 'Daniela Silva', 28, 'Feminino', 'Mortosa', 111222333);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (24, 'Catarina Peralta', 31, 'Feminino', 'Vila do Conde', 888999111);
-INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (25, 'Aleixo Correia', 57, 'Masculino', 'Esposende', 199911222);
+INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (25, 'Aleixo Correia', 57, 'Masculino', 'Esposende', 999111222);
+
 
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (26, 'Duque', 42, 'Masculino', 121212121);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, NIF) VALUES (27, 'Fábio', 28, 'Masculino', 131313131);
@@ -32,6 +35,7 @@ INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (28, 'Pedro'
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (29, 'Rafael', 28, 'Masculino', 'Viana', 151515151);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (30, 'Veronica', 31, 'Feminino', 'Fão', 161616161);
 INSERT INTO Pessoa(idPessoa, nome, idade, sexo, morada, NIF) VALUES (31, 'Vera', 57, 'Feminino', 'Braga', 171717171);
+
 
 
 INSERT INTO Utente(numeroUtente, idPessoa) VALUES (1000, 1);
@@ -77,6 +81,7 @@ INSERT INTO Medico(numeroFuncionario, idEspecialidade, areaAcao) VALUES (517, 4,
 INSERT INTO Medico(numeroFuncionario, idEspecialidade, areaAcao) VALUES (518, 1, 'Ortopedia');
 INSERT INTO Medico(numeroFuncionario, idEspecialidade, areaAcao) VALUES (519, 3, 'Cirurgica');
 INSERT INTO Medico(numeroFuncionario, idEspecialidade, areaAcao) VALUES (520, 5, 'ClinicaGeral');
+
 
 INSERT INTO Alergia VALUES(1, 'Polen');
 INSERT INTO Alergia VALUES(2, 'Acaros');
@@ -132,6 +137,7 @@ INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) 
 INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(10, 1002, 513, '2016-04-26 17:00');
 
 
+
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(1, 1000, 501, 'Medica', 'poucoUrgente');
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(2, 1001, 500, 'Cirurgica', 'emergente');
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(3, 1003, 501, 'ClinicaGeral', 'poucoUrgente');
@@ -156,11 +162,18 @@ INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada
 INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(10, 1002, 511, '2016-04-26 17:09', '2016-04-26 17:36');
 
 
-INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(2,3,'Cirurgica',2120);
+INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(2, 3, 'Cirurgica', 2120);
+INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(7, 4, 'Cirurgica', 3045);
+INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(9, 5, 'Medica', 5235);
 
 
-INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(12349,1,'Ben-u-ron');
-INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(13938, 3, 'Brufen');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(12349, 1, 'Ben-u-ron');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(13938, 2, 'Brufen');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(13412, 4, 'Ben-u-ron');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(13256, 5, 'Brufen');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(54723, 6, 'Ben-u-ron');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(32523, 8, 'Brufen');
+INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(97343, 10, 'Brufen');
 
 
 INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(1, 1000, 502, '2016-04-22 21:23', 100);
@@ -173,3 +186,15 @@ INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, tax
 INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(8, 1009, 513, '2016-04-25 21:23', 200);
 INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(9, 1005, 512, '2016-04-26 10:11', 25);
 INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(10, 1002, 512, '2016-04-26 18:09', 15);
+
+
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(1, 1000, 515);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(2, 1001, 516);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(3, 1003, 515);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(4, 1002, 517);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(5, 1005, 518);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(6, 1006, 517);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(7, 1008, 519);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(8, 1009, 520);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(9, 1005, 519);
+INSERT INTO Tratamento(urgenciaID, numeroUtente, numeroFuncionario) VALUES(10, 1002, 520);
