@@ -80,9 +80,7 @@ WHERE Medico.areaAcao='Cirurgica';
 6. Quais os IDs dos utentes cuja triagem resultou num nível de prioridade "emergente" ou "muito urgente"?
 
 SELECT numeroUtente FROM Triagem
-WHERE(Triagem.prioridade='emergente'
-      OR
-      Triagem.prioridade='muitoUrgente');
+WHERE Triagem.prioridade IN('emergente','muitoUrgente');
 
 
 7. Quais os nomes, idades e sexo dos utentes que ficaram mais do que 1 dia nas urgências?
@@ -113,6 +111,19 @@ SELECT numeroFuncionario FROM Funcionario
 WHERE idEquipa=1;
 
 9. Qual o ID do médico que realizou mais cirurgias?
+
+SELECT numeroFuncionario, MAX(cirurgias)
+FROM(
+SELECT Medico.numeroFuncionario, COUNT(*) as cirurgias
+FROM
+	(Medico
+	INNER JOIN
+	Tratamento
+	ON Medico.numeroFuncionario = Tratamento.numeroFuncionario 
+	INNER JOIN
+	Cirurgia
+	ON Tratamento.urgenciaID = Cirurgia.urgenciaID)
+GROUP BY Medico.numeroFuncionario);
 
 10. Qual o nome e a idade do 1º e 2º utente mais velhos que foram às urgências e qual o ID dos médicos que os atenderam?
 
