@@ -8,8 +8,8 @@ NIF INT NOT NULL UNIQUE);
 
 CREATE TABLE EquipaUrgencia(
 idEquipa INT NOT NULL PRIMARY KEY, 
-dataInicio DATE NOT NULL, 
-dataFim DATE, 
+dataInicio DATETIME NOT NULL, 
+dataFim DATETIME, 
 idLider INT NOT NULL, 
 FOREIGN KEY (idLider) REFERENCES Medico(idLider));
 
@@ -72,14 +72,14 @@ CREATE TABLE Inscricao
 (urgenciaID INT PRIMARY KEY NOT NULL,
 numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
 numeroFuncionario INT REFERENCES Funcionario(númeroFuncionario) NOT NULL,
-horaEntrada INT NOT NULL);
+horaEntrada DATETIME NOT NULL);
 
 CREATE TABLE Checkout
 (urgenciaID INT PRIMARY KEY NOT NULL,
 numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
 numeroFuncionario INT REFERENCES Funcionario(númeroFuncionario) NOT NULL,
 taxa INT NOT NULL,
-dataSaida INT NOT NULL);
+dataSaida DATETIME NOT NULL);
 
 CREATE TABLE Triagem
 (urgenciaID INT PRIMARY KEY NOT NULL,
@@ -91,9 +91,9 @@ prioridade TEXT NOT NULL);
 CREATE TABLE Diagnostico
 (urgenciaID INT NOT NULL,
 numeroUtente INT REFERENCES Utente(numeroUtente) NOT NULL,
-númeroFuncionario INT REFERENCES Funcionario(numeroFuncionario) NOT NULL,
-dataEntrada INT NOT NULL,
-dataSaida INT,
+numeroFuncionario INT REFERENCES Funcionario(numeroFuncionario) NOT NULL,
+dataEntrada DATETIME NOT NULL,
+dataSaida DATETIME,
 PRIMARY KEY(urgenciaID, dataEntrada, dataSaida),
 CHECK (dataSaida > dataEntrada)); 
 

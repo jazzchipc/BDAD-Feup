@@ -108,28 +108,28 @@ INSERT INTO UtenteAlergia VALUES(2, 1008);
 INSERT INTO UtenteAlergia VALUES(3, 1004);
 INSERT INTO UtenteAlergia VALUES(2, 1005);
 INSERT INTO UtenteAlergia VALUES(5, 1007);
-INSERT INTO UtenteVacina VALUES(1, 1004, '01-07-1996');
-INSERT INTO UtenteVacina VALUES(1, 1003, '28-02-2002');
-INSERT INTO UtenteVacina VALUES(2, 1000, '21-03-2001');
-INSERT INTO UtenteVacina VALUES(1, 1003, '28-02-2002');
-INSERT INTO UtenteVacina VALUES(2, 1000, '21-03-2001');
+INSERT INTO UtenteVacina VALUES(1, 1004, '1996-07-01');
+INSERT INTO UtenteVacina VALUES(1, 1003, '2002-02-28');
+INSERT INTO UtenteVacina VALUES(2, 1000, '2001-03-21');
+INSERT INTO UtenteVacina VALUES(1, 1003, '2002-02-28');
+INSERT INTO UtenteVacina VALUES(2, 1000, '2001-03-21');
 
 
-INSERT INTO EquipaUrgencia VALUES(1, '2016-22-04 15:00', '2016-23-04 12:00', 515);
-INSERT INTO EquipaUrgencia VALUES(2, '2016-23-04 20:00', '2016-24-04 15:00', 518);
-INSERT INTO EquipaUrgencia VALUES(3, '2016-25-04 10:00', '2016-26-04 19:00', 520);
+INSERT INTO EquipaUrgencia VALUES(1, '2016-04-22 15:00', '2016-04-23 12:00', 515);
+INSERT INTO EquipaUrgencia VALUES(2, '2016-04-23 20:00', '2016-04-24 15:00', 518);
+INSERT INTO EquipaUrgencia VALUES(3, '2016-04-25 10:00', '2016-04-26 19:00', 520);
 
 
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(1, 1000, 502, '2016-22-04 17:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(2, 1001, 503, '2016-22-04 22:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(3, 1003, 502, '2016-23-04 09:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(4, 1002, 507, '2016-23-04 21:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(5, 1005, 508, '2016-24-04 09:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(6, 1006, 507, '2016-24-04 13:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(7, 1008, 512, '2016-25-04 12:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(8, 1009, 512, '2016-25-04 19:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(9, 1005, 513, '2016-26-04 08:00');
-INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(10, 1002, 513, '2016-26-04 17:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(1, 1000, 502, '2016-04-22 17:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(2, 1001, 503, '2016-04-22 22:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(3, 1003, 502, '2016-04-23 09:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(4, 1002, 507, '2016-04-23 21:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(5, 1005, 508, '2016-04-24 09:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(6, 1006, 507, '2016-04-24 13:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(7, 1008, 512, '2016-04-25 12:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(8, 1009, 512, '2016-04-25 19:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(9, 1005, 513, '2016-04-26 08:00');
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(10, 1002, 513, '2016-04-26 17:00');
 
 
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(1, 1000, 501, 'Medica', 'poucoUrgente');
@@ -144,16 +144,16 @@ INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prior
 INSERT INTO Triagem(urgenciaID, numeroUtente, numeroFuncionario, areaAcao, prioridade) VALUES(10, 1002, 511, 'Ortopedia', 'urgente');
 
 
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(1, 1000, 501, '2016-22-04 17:23', '2016-22-04 18:23');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(2, 1001, 500, '2016-22-04 22:51', '2016-22-04 23:51');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(3, 1003, 501, '2016-23-04 09:41', '2016-23-04 09:59');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(4, 1002, 505, '2016-23-04 21:46', '2016-23-04 23:46');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(5, 1005, 506, '2016-24-04 09:21', '2016-24-04 09:57');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(6, 1006, 505, '2016-24-04 13:41', '2016-24-04 14:41');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(7, 1008, 510, '2016-25-04 12:45', '2016-25-04 13:45');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(8, 1009, 511, '2016-25-04 19:23', '2016-25-04 19:59');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(9, 1005, 510, '2016-26-04 08:11', '2016-26-04 08:45');
-INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(10, 1002, 511, '2016-26-04 17:09', '2016-26-04 17:36');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(1, 1000, 501, '2016-04-22 17:23', '2016-04-22 18:23');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(2, 1001, 500, '2016-04-22 22:51', '2016-04-22 23:51');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(3, 1003, 501, '2016-04-23 09:41', '2016-04-23 09:59');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(4, 1002, 505, '2016-04-23 21:46', '2016-04-23 23:46');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(5, 1005, 506, '2016-04-24 09:21', '2016-04-24 09:57');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(6, 1006, 505, '2016-04-24 13:41', '2016-04-24 14:41');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(7, 1008, 510, '2016-04-25 12:45', '2016-04-25 13:45');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(8, 1009, 511, '2016-04-25 19:23', '2016-04-25 19:59');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(9, 1005, 510, '2016-04-26 08:11', '2016-04-26 08:45');
+INSERT INTO Diagnostico(urgenciaID, numeroUtente, numeroFuncionario, dataEntrada, dataSaida) VALUES(10, 1002, 511, '2016-04-26 17:09', '2016-04-26 17:36');
 
 
 INSERT INTO Cirurgia(urgenciaID, codigo, areaAcao, idSalaCirurgica) VALUES(2,3,'Cirurgica',2120);
@@ -163,13 +163,13 @@ INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(12349,1,'Ben-u-ron')
 INSERT INTO Prescricao(referencia, urgenciaID, nome) VALUES(13938, 3, 'Brufen');
 
 
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(1, 1000, 502, '2016-22-04 21:23', 100);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(2, 1001, 503, '2016-23-04 03:21', 50);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(3, 1003, 503, '2016-23-04 11:41', 200);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(4, 1007, 507, '2016-24-04 01:46', 25);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(5, 1007, 507, '2016-24-04 12:21', 15);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(6, 1008, 508, '2016-24-04 14:41', 100);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(7, 1008, 512, '2016-25-04 16:45', 50);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(8, 1009, 513, '2016-25-04 21:23', 200);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(9, 1005, 512, '2016-26-04 10:11', 25);
-INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(10, 1002, 512, '2016-26-04 18:09', 15);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(1, 1000, 502, '2016-04-22 21:23', 100);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(2, 1001, 503, '2016-04-23 03:21', 50);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(3, 1003, 503, '2016-04-23 11:41', 200);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(4, 1007, 507, '2016-04-24 01:46', 25);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(5, 1007, 507, '2016-04-24 12:21', 15);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(6, 1008, 508, '2016-04-24 14:41', 100);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(7, 1008, 512, '2016-04-25 16:45', 50);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(8, 1009, 513, '2016-04-25 21:23', 200);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(9, 1005, 512, '2016-04-26 10:11', 25);
+INSERT INTO Checkout(urgenciaID, numeroUtente, numeroFuncionario, dataSaida, taxa) VALUES(10, 1002, 512, '2016-04-26 18:09', 15);
