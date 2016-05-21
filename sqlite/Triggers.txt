@@ -1,0 +1,70 @@
+CREATE TRIGGER Lider
+         AFTER INSERT
+            ON EquipaUrgencia
+      FOR EACH ROW
+          WHEN (
+    SELECT numeroFuncionario
+      FROM Funcionario
+     WHERE NOT EXISTS (
+                   SELECT *
+                     FROM Funcionario
+                    WHERE numeroFuncionario == NEW.idLider AND 
+                          funcao == 'Medico'
+               )
+)
+BEGIN
+    SELECT RAISE(ABORT, Lider invalido);
+END;
+
+
+CREATE TRIGGER Turno
+         AFTER INSERT
+            ON EquipaUrgencia
+      FOR EACH ROW
+          WHEN (
+    SELECT idLider
+      FROM EquipaUrgencia
+     WHERE EXISTS (
+               SELECT *
+                 FROM EquipaUrgencia
+                WHERE idEquipa != NEW.idEquipa AND 
+                      dataEntrada > NEW.dataEntrada AND 
+                      dataSaida < NEW.dataSaida
+           )
+)
+BEGIN
+    SELECT RAISE(ABORT, Turno invalido.);
+END;
+
+CREATE TRIGGER atualizaMedico
+         AFTER DELETE
+            ON Especialidade
+      FOR EACH ROW
+BEGIN
+    UPDATE Medico
+       SET idEspecialidade = NULL
+     WHERE Medico.idEspecialidade = OLD.idEspecialidade;
+END;
+
+CREATE TRIGGER horaEntrada
+         AFTER INSERT
+            ON Inscricao
+      FOR EACH ROW
+          WHEN (
+    SELECT numeroFuncionario
+      FROM Funcionario
+     WHERE NOT EXISTS (
+                   SELECT *
+                     FROM (
+                              Funcionario
+                              INNER JOIN
+                              EquipaUrgencia ON (EquipaUrgencia.idEquipa = Funcionario.idEquipa AND 
+                                                 NEW.numeroFuncionario = Funcionario.numeroFuncionario) 
+                          )
+                    WHERE EquipaUrgencia.dataEntrada < NEW.horaEntrada AND 
+                          EquipaUrgencia.dataSaida > NEW.horaEntrada
+               )
+)
+BEGIN
+    SELECT RAISE(ABORT, Hora de entrada invalida);
+END;
