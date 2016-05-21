@@ -45,6 +45,11 @@ WHERE Vacina.nome='Tetano';
 
 5. Quais os IDs dos médicos de área de ação "Cirurgica" que estiveram na equipa de urgência ativa no dia 23 de Abril de 2016?
 
+SELECT numeroFuncionario FROM Medico
+INNER JOIN EquipaUrgencia
+ON(EquipaUrgencia.dataInicio<='27-04-2016' AND EquipaUrgencia.dataFim >='27-04-2016')
+WHERE Medico.areaAcao='Cirurgica';
+
 
 6. Quais os IDs dos utentes cuja triagem resultou num nível de prioridade "emergente" ou "muito urgente"?
 
@@ -57,12 +62,14 @@ WHERE(Triagem.prioridade='emergente'
 7. Quais os nomes dos utentes que ficaram mais do que um dia nas urgências?
 
 
-8. Quais os numeroFuncionario dos funcionarios que participaram numa determinada urgênciaID?
-[AINDA NAO ESTA TERMINADO]
-SELECT numeroFuncionario FROM Inscricao WHERE Inscricao.urgenciaID=1
-FULL JOIN
-//todos as outras tabelas
 
+
+
+8. Quais os numeroFuncionario dos funcionarios que participaram na equipa com urgênciaID=1?
+
+
+SELECT numeroFuncionario FROM Funcionario 
+WHERE idEquipa=1;
 
 9. Qual o ID do médico que realizou mais cirurgias?
 

@@ -42,7 +42,7 @@ idVacina INT NOT NULL PRIMARY KEY,
 nome VARCHAR(50) NOT NULL);
 
 CREATE TABLE Especialidade(
-idEspecialidade	INT NOT NULL PRIMARY KEY, 
+idEspecialidade INT NOT NULL PRIMARY KEY, 
 designacao VARCHAR(50));
 
 CREATE TABLE SalaCirurgica(
