@@ -11,7 +11,8 @@ idEquipa INT NOT NULL PRIMARY KEY,
 dataInicio DATETIME NOT NULL, 
 dataFim DATETIME, 
 idLider INT NOT NULL, 
-FOREIGN KEY (idLider) REFERENCES Medico(idLider));
+FOREIGN KEY (idLider) REFERENCES Medico(idLider)
+CHECK (dataFim > dataInicio));
 
 CREATE TABLE Utente(
 numeroUtente INT NOT NULL PRIMARY KEY,
