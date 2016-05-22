@@ -1,0 +1,14 @@
+NO RELATÓRIO NÃO CONSTAM TODOS OS COMANDOS DE INSERT. Para não tornar o ficheiro .pdf extenso, apenas escrevemos exemplos de INSERT. Todos os comandos que conecebemos estão no ficheiro "insert.sql".
+
+Todos os ficheiros SQL estão aptos para ser usados pelo SQLite usando a função ".read".
+
+Para construir a base de dados:
+
+1. ".open <nome da base de dados>"
+2. ".read create.sql"
+3. ".read insert.sql"
+4. ".read trigger.sql"
+
+Para ver as interrogações e respetivas respostas:
+
+".read query.sql"
