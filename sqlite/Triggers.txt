@@ -82,3 +82,17 @@ END;
 
 //Trigger horaEntrada teste
 INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(12, 1007, 507, '2016-04-22 18:21');
+
+
+CREATE TRIGGER CirurgiaIDupdate
+         AFTER UPDATE OF idSalaCirurgica
+            ON SalaCirurgica
+      FOR EACH ROW
+BEGIN
+    UPDATE Cirurgia
+       SET idSalaCirurgica = NEW.idSalaCirurgica
+     WHERE Cirurgia.idSalaCirurgica = OLD.idSalaCirurgica;
+END;
+
+//Teste CirurgiaIDupdate
+UPDATE SalaCirurgica SET idSalaCirurgica = 500, bloco = 'D' WHERE idSalaCirurgica = 3045;
