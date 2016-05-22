@@ -28,7 +28,7 @@ FOREIGN KEY (idEquipa) REFERENCES EquipaUrgencia(idEquipa));
 
 CREATE TABLE Medico(
 numeroFuncionario INT NOT NULL PRIMARY KEY,
-idEspecialidade INT NOT NULL,
+idEspecialidade INT,
 areaAcao VARCHAR(50) NOT NULL,
 FOREIGN KEY (numeroFuncionario) REFERENCES Funcionario(numeroFuncionario),
 FOREIGN KEY (idEspecialidade) REFERENCES Especialidade(idEspecialidade));
