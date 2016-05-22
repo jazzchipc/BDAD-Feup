@@ -43,7 +43,7 @@ END;
 //Trigger Turno teste
 INSERT INTO EquipaUrgencia VALUES(5, '2016-04-25 11:00', '2016-04-26 17:00', 512);
 
-CREATE TRIGGER AtualizaMedico
+CREATE TRIGGER EspecialidadeDelete
          AFTER DELETE
             ON Especialidade
       FOR EACH ROW
@@ -53,7 +53,7 @@ BEGIN
      WHERE Medico.idEspecialidade = OLD.idEspecialidade;
 END;
 
-//Trigger AtualizaMedico teste
+//Trigger EspecialidadeDelete teste
 DELETE FROM Especialidade
 WHERE Especialidade.designacao = 'Cardiologia';
 
@@ -84,7 +84,7 @@ END;
 INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(12, 1007, 507, '2016-04-22 18:21');
 
 
-CREATE TRIGGER CirurgiaIDupdate
+CREATE TRIGGER SalaCirurgicaUpdate
          AFTER UPDATE OF idSalaCirurgica
             ON SalaCirurgica
       FOR EACH ROW
@@ -94,5 +94,5 @@ BEGIN
      WHERE Cirurgia.idSalaCirurgica = OLD.idSalaCirurgica;
 END;
 
-//Teste CirurgiaIDupdate
+//Teste SalaCirurgicaUpdate
 UPDATE SalaCirurgica SET idSalaCirurgica = 500, bloco = 'D' WHERE idSalaCirurgica = 3045;
