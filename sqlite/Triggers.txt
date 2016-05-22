@@ -11,11 +11,13 @@ CREATE TRIGGER Lider
                     WHERE numeroFuncionario == NEW.idLider AND 
                           funcao == 'Medico'
                )
-)
+	)
 BEGIN
-    SELECT RAISE(ABORT, Lider invalido);
+    SELECT RAISE(ABORT, 'Lider invalido');
 END;
 
+//Trigger Lider teste
+INSERT INTO EquipaUrgencia VALUES(4, '2016-04-25 10:00', '2016-04-26 19:00', 512);
 
 CREATE TRIGGER Turno
          AFTER INSERT
@@ -24,19 +26,24 @@ CREATE TRIGGER Turno
           WHEN (
     SELECT idLider
       FROM EquipaUrgencia
-     WHERE EXISTS (
+     WHERE NOT EXISTS (
                SELECT *
                  FROM EquipaUrgencia
-                WHERE idEquipa != NEW.idEquipa AND 
-                      dataEntrada > NEW.dataEntrada AND 
-                      dataSaida < NEW.dataSaida
+                WHERE idEquipa != NEW.idEquipa AND (
+                      dataInicio < NEW.dataInicio AND 
+                      dataFim < NEW.dataFim) OR (
+                      dataInicio > NEW.dataInicio AND 
+                      dataFim > NEW.dataFim)
            )
 )
 BEGIN
     SELECT RAISE(ABORT, Turno invalido.);
 END;
 
-CREATE TRIGGER atualizaMedico
+//Trigger Turno teste
+INSERT INTO EquipaUrgencia VALUES(5, '2016-04-25 11:00', '2016-04-26 17:00', 512);
+
+CREATE TRIGGER AtualizaMedico
          AFTER DELETE
             ON Especialidade
       FOR EACH ROW
@@ -45,6 +52,10 @@ BEGIN
        SET idEspecialidade = NULL
      WHERE Medico.idEspecialidade = OLD.idEspecialidade;
 END;
+
+//Trigger AtualizaMedico teste
+DELETE FROM Especialidade
+WHERE Especialidade.designacao = 'Cardiologia';
 
 CREATE TRIGGER horaEntrada
          AFTER INSERT
@@ -61,10 +72,13 @@ CREATE TRIGGER horaEntrada
                               EquipaUrgencia ON (EquipaUrgencia.idEquipa = Funcionario.idEquipa AND 
                                                  NEW.numeroFuncionario = Funcionario.numeroFuncionario) 
                           )
-                    WHERE EquipaUrgencia.dataEntrada < NEW.horaEntrada AND 
-                          EquipaUrgencia.dataSaida > NEW.horaEntrada
+                    WHERE EquipaUrgencia.dataInicio < NEW.horaEntrada AND 
+                          EquipaUrgencia.dataFim > NEW.horaEntrada
                )
 )
 BEGIN
-    SELECT RAISE(ABORT, Hora de entrada invalida);
+    SELECT RAISE(ABORT, 'Hora de entrada invalida');
 END;
+
+//Trigger horaEntrada teste
+INSERT INTO Inscricao(urgenciaID, numeroUtente, numeroFuncionario, horaEntrada) VALUES(12, 1007, 507, '2016-04-22 18:21');
